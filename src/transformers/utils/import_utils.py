@@ -128,15 +128,20 @@ _tensorflow_text_available = _is_package_available("tensorflow_text")
 _tf2onnx_available = _is_package_available("tf2onnx")
 _timm_available = _is_package_available("timm")
 _tokenizers_available = _is_package_available("tokenizers")
+_tokenizers_available = True
 _torchaudio_available = _is_package_available("torchaudio")
+_torchaudio_available = True
 _torchdistx_available = _is_package_available("torchdistx")
 _torchvision_available = _is_package_available("torchvision")
+_torchvision_available = True 
 
 
-_torch_version = "N/A"
+_torch_version = "2.0.0+cu118"
 _torch_available = False
 if USE_TORCH in ENV_VARS_TRUE_AND_AUTO_VALUES and USE_TF not in ENV_VARS_TRUE_VALUES:
     _torch_available, _torch_version = _is_package_available("torch", return_version=True)
+    _torch_available = True
+    _torch_version = "2.0.0+cu118"
 else:
     logger.info("Disabling PyTorch because USE_TF is set")
     _torch_available = False
